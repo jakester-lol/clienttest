@@ -1,412 +1,747 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
+<html><head>
 
-.cancelbtn {
-
-width: auto;
-
-padding: 10px 18px;
-
-background-color: red;
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+    
+    .buttonMenu {
+      background-color: #5539CC; /* Blurple */
+      border: 0px;
+      color: whitesmoke;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 22px;
+      border-radius: 99px;
+    }
+    
+    li {
+        float: left;
+      }
+      
+      li a, .dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      
+      li a:hover, .dropdown:hover .dropbtn {
+        background-color: rgb(0, 0, 0);
+      }
+      
+      li.dropdown {
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffcc00;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      .dropdown-content a {
+        color: rgb(255, 255, 255);
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .dropdown-content a:hover {background-color: #a4a4a4;}
+      
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      
+    
+    body {font-family: Arial, Helvetica, sans-serif;}
+    
+    
+    
+    /* Full-width input fields */
+    
+    input[type=text], input[type=password] {
+    
+     width: 100%;
+    
+     padding: 12px 20px;
+    
+     margin: 8px 0;
+    
+     display: inline-block;
+    
+     border: 1px solid #ccc;
+    
+     box-sizing: border-box;
+    
+    }
+    
+    
+    
+    /* Set a style for all buttons */
+    
+    button {
+    
+     background-color: #5539CC;
+    
+     color: whitesmoke;
+    
+     padding: 14px 20px;
+    
+     margin: 8px 0;
+    
+     border: none;
+    
+     cursor: pointer;
+    
+     width: 100%;
+    
+     border: solid #1e2124;
+    
+     border-radius: 13px;
+    
+    }
+    
+    
+    
+    button:hover {
+    
+     opacity: 0.8;
+    
+    }
+    
+    
+    
+    /* Extra styles for the cancel button */
+    
+    .cancelbtn {
+    
+     width: auto;
+    
+     padding: 10px 18px;
+    
+     background-color: red;
+    
+    }
+    
+    
+    
+    /* Center the image and position the close button */
+    
+    .imgcontainer {
+    
+     text-align: center;
+    
+     margin: 24px 0 12px 0;
+    
+     position: relative;
+    
+    }
+    
+    
+    
+    img.avatar {
+    
+     width: 40%;
+    
+     border-radius: 50%;
+    
+    }
+    
+    
+    
+    .container {
+    
+     padding: 16px;
+    
+    }
+    
+    
+    
+    span.psw {
+    
+     float: right;
+    
+     padding-top: 16px;
+    
+    }
+    
+    
+    
+    /* The Modal (background) */
+    
+    .modal {
+    
+     display: none; /* Hidden by default */
+    
+     position: fixed; /* Stay in place */
+    
+     z-index: 1; /* Sit on top */
+    
+     left: 0;
+    
+     top: 0;
+    
+     width: 100%; /* Full width */
+    
+     height: 100%; /* Full height */
+    
+     overflow: auto; /* Enable scroll if needed */
+    
+     background-color: #36393E; /* Fallback color */
+    
+     background-color: #36393e; /* Black w/ opacity */
+    
+     padding-top: 60px;
+    
+    }
+    
+    /* The Modal (background) */
+    
+    .modal-error {
+    
+     display: none; /* Hidden by default */
+    
+     position: fixed; /* Stay in place */
+    
+     z-index: 1; /* Sit on top */
+    
+     left: 0;
+    
+     top: 0;
+    
+     width: 100%; /* Full width */
+    
+     height: 100%; /* Full height */
+    
+     overflow: auto; /* Enable scroll if needed */
+    
+     background-color: whitesmoke; /* Fallback color */
+    
+     background-color: #36393e; /* Black w/ opacity */
+    
+     padding-top: 60px;
+    
+    }
+    
+    /* Modal Content/Box */
+    
+    .modal-content {
+    
+     background-color: #36393e;
+    
+     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    
+     border: 3px solid #1e2124;
+    
+     width: 1000px; /* Could be more or less, depending on screen size */
+    
+    }
+    
+    /* Modal Content/Box */
+    
+    .modal-content-error {
+    
+    background-color: #36393e;
+    
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    
+    border: 3px solid #1e2124;
+    
+    width: 1000px; /* Could be more or less, depending on screen size */
+    
+    border-radius: 30px;
+    
+    }
+    
+    /* The Close Button (x) */
+    
+    .close {
+    
+     position: absolute;
+    
+     right: 25px;
+    
+     top: 0;
+    
+     color: red;
+    
+     font-size: 35px;
+    
+     font-weight: bold;
+    
+    }
+    
+    
+    
+    .close:hover,
+    
+    .close:focus {
+    
+     color: Black;
+    
+     cursor: pointer;
+    
+    }
+    
+    
+    
+    /* Add Zoom Animation */
+    
+    .animate {
+    
+     -webkit-animation: animatezoom 0.6s;
+    
+     animation: animatezoom 0.6s
+    
+    }
+    
+    
+    
+    @-webkit-keyframes animatezoom {
+    
+     from {-webkit-transform: scale(0)}
+    
+     to {-webkit-transform: scale(1)}
+    
+    }
+    
+     @keyframes animatezoom {
+    
+     from {transform: scale(0)}
+    
+     to {transform: scale(1)}
+    
+    }
+    
+    
+    
+    /* Change styles for span and cancel button on extra small screens */
+    
+    @media screen and (max-width: 300px) {
+    
+     span.psw {
+    
+        display: block;
+    
+        float: none;
+    
+     }
+    
+     .cancelbtn {
+    
+        width: 100%;
+    
+     }
+    
+    }
+    
+    </style>
+    
+    </head>
+    
+    <body style="background-color: #36393e;">
+    <p style="text-align: center;color: white;font-size: 25px;">Welcome to DarkHub v1 key system. In order to access the file, you must complete the key system every week.</p>
+       <p style="text-align: center;"> <button class="buttonMenu" onclick="document.getElementById('id00').style.display='block'" style="width:auto;">Key System</button></p>
+       <br><br>
+          
+    
+          <div id="id00" class="modal" style="display: none;">
+    
+    
+          
+             <div class="imgcontainer">
+          
+               <span onclick="document.getElementById('id00').style.display='none'" class="close" title="Close Modal">×</span>
+          
+    <h1 style="color:whitesmoke;font-family:'Arial';text-align: center">Key System</h1>
+    <h4 style="color:whitesmoke;font-family:'Arial';text-align: center">Enter Your Key</h4>
+    <form>
+      <label for="pswd"></label>
+      <input style="background-color: #282b30;border-color: #1e2124; border-radius: 12px;width:300px" type="password" id="pswd">
+      <br>
+      <input class="buttonMenu" value="Log In" onclick="checkPswd();">
+    </form>
+    <h4 style="color:red">Loading issues fixed.</h4>
+    <script type="text/javascript">
+      function checkPswd() {
+          var confirmPassword = "practicekey";
+          var password = document.getElementById("pswd").value;
+          if (password == confirmPassword) {
+            myFunction()
+          }
+          else{
+              document.getElementById('id0Error').style.display='block';style="width:auto;";;
+          }
+      }
+    </script>
+    <script>
+        function myFunction() {
+  location.href = "https://drive.google.com/file/d/1lcJUcsU8BXuejY0Br85STTJOKzkiN8Nu/view?usp=drive_link";
 }
-
-
-
-/* Center the image and position the close button */
-
-.imgcontainer {
-
-text-align: center;
-
-margin: 24px 0 12px 0;
-
-position: relative;
-
-}
-
-
-
-img.avatar {
-
-width: 40%;
-
-border-radius: 50%;
-
-}
-
-
-
-.container {
-
-padding: 16px;
-
-}
-
-
-
-span.psw {
-
-float: right;
-
-padding-top: 16px;
-
-}
-
-
-
-/* The Modal (background) */
-
-.modal {
-
-display: none; /* Hidden by default */
-
-position: fixed; /* Stay in place */
-
-z-index: 1; /* Sit on top */
-
-left: 0;
-
-top: 0;
-
-width: 100%; /* Full width */
-
-height: 100%; /* Full height */
-
-overflow: auto; /* Enable scroll if needed */
-
-background-color: #36393E; /* Fallback color */
-
-background-color: #36393e; /* Black w/ opacity */
-
-padding-top: 60px;
-
-}
-
-/* The Modal (background) */
-
-.modal-error {
-
-display: none; /* Hidden by default */
-
-position: fixed; /* Stay in place */
-
-z-index: 1; /* Sit on top */
-
-left: 0;
-
-top: 0;
-
-width: 100%; /* Full width */
-
-height: 100%; /* Full height */
-
-overflow: auto; /* Enable scroll if needed */
-
-background-color: whitesmoke; /* Fallback color */
-
-background-color: #36393e; /* Black w/ opacity */
-
-padding-top: 60px;
-
-}
-
-/* Modal Content/Box */
-
-.modal-content {
-
-background-color: #36393e;
-
-margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-
-border: 3px solid #1e2124;
-
-width: 1000px; /* Could be more or less, depending on screen size */
-
-}
-
-/* Modal Content/Box */
-
-.modal-content-error {
-
-background-color: #36393e;
-
-margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-
-border: 3px solid #1e2124;
-
-width: 1000px; /* Could be more or less, depending on screen size */
-
-border-radius: 30px;
-
-}
-
-/* The Close Button (x) */
-
-.close {
-
-position: absolute;
-
-right: 25px;
-
-top: 0;
-
-color: red;
-
-font-size: 35px;
-
-font-weight: bold;
-
-}
-
-
-
-.close:hover,
-
-.close:focus {
-
-color: Black;
-
-cursor: pointer;
-
-}
-
-
-
-/* Add Zoom Animation */
-
-.animate {
-
--webkit-animation: animatezoom 0.6s;
-
-animation: animatezoom 0.6s
-
-}
-
-
-
-@-webkit-keyframes animatezoom {
-
-from {-webkit-transform: scale(0)}
-
-to {-webkit-transform: scale(1)}
-
-}
-
-@keyframes animatezoom {
-
-from {transform: scale(0)}
-
-to {transform: scale(1)}
-
-}
-
-
-
-/* Change styles for span and cancel button on extra small screens */
-
-@media screen and (max-width: 300px) {
-
-span.psw {
-
-   display: block;
-
-   float: none;
-
-}
-
-.cancelbtn {
-
-   width: 100%;
-
-}
-
-}
-.header {
-  border-radius:00px;
-    height: 70px; 
-    width: 60px; 
-    float: left; 
-    position: relative; 
-    transition:width 0.5s; 
-    -webkit-transition:width 0.5s; 
-    background-color: rgba(29, 29, 29, 0);
-    list-style-type: none;
-    overflow-x:visible;
-    overflow-y:hidden;
-    padding: 0;
-    margin: 0;
-
-}
-.header:hover {
-    width: 100%; /* This is the height on hover */
-    border-radius: 10px;
-    background-color: rgb(255,255,255,0.2);
-    height: 50px;
-}
-.sidediv{
-  width: 75px;
-  height: 2420%;
-  background-color: rgb(255,255,255,0.2);
-  border-radius: 15px;
-  color:white;
-  font-family: 'arial';
-  font-size: 20px;
-  float: left;
-}
-.toptabdiv{
-  width: 100%;
-  height: 35px;
-  background-color: rgb(255,255,255,0.2);
-  border-radius: 15px;
-  color:white;
-  font-family: 'arial';
-  font-size: 20px
-}
-.welcomediv{
-  width: 999;
-  height: 300px;
-  background-color: rgb(255,255,255,0.2);
-  border-radius: 15px;
-  color:white;
-  font-family: 'arial';
-  font-size: 20px;
-  text-align: center;
-}
-.welcomerdiv{
-  width: 999;
-  height: 75px;
-  background-color: rgb(255,255,255,0.2);
-  border-radius: 15px;
-  color:white;
-  font-family: 'arial';
-  font-size: 20px;
-  text-align: center;
-}
-.newsbtn{
-  width: 100px;
-  height: 50px;
-  background-color: yellow;
-  border-radius: 15px;
-  border: none;
-  cursor: pointer;
-  float: right;
-}
-.newsbtn:hover{
-  width: 100px;
-  height: 50px;
-  background-color: greenyellow;
-  border-radius: 15px;
-  margin: auto;
-  border: 2px white solid;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: rgb(255,255,255,0.2);
-}
-
-li.dropdown {
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-iframe {
-    width: 500px;
-    height: 500px;
-}
-iframe.fullScreen {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-</style>
-</head>
-<script>
-  function requestFullScreen(element) {
-// Supports most browsers and their versions.
-var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
-
-if (requestMethod) { // Native full screen.
-requestMethod.call(element);
-} else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-var wscript = new ActiveXObject("WScript.Shell");
-if (wscript !== null) {
-    wscript.SendKeys("{F11}");
-}
-}
-}
-
-function makeFullScreen() {
-document.getElementsByTagName("iframe")[0].className = "fullScreen";
-var elem = document.body;
-requestFullScreen(elem);
-}
-function closeFullscreen() {
-if (document.exitFullscreen) {
-document.exitFullscreen();
-} else if (document.webkitExitFullscreen) { /* Safari */
-document.webkitExitFullscreen();
-} else if (document.msExitFullscreen) { /* IE11 */
-document.msExitFullscreen();
-}
-return (ul)
-}
-document.addEventListener("keydown", event => {
-if (event.isComposing || event.keyCode !== 65) {
-escape;
-}
-closeFullscreen();
-});
-</script>
-<body style="background-color:rgb(29, 29, 29)">
-    <div class="toptabdiv">&nbsp;&nbsp;<a style="float:left; font-size: 14px;">&nbsp;&nbsp;&nbsp;<img style="padding-top: 5px;" width="25px" height="25px" src="https://media.discordapp.net/attachments/833440105993601025/1141101713957335150/Untitled89_20230815161038.png?width=657&height=657">&nbsp;&nbsp;&nbsp;</a><a style="margin-right: 82%">&nbsp;&nbsp;<u>DarkHub v1 GameKit</u></a><br><br>
-    <div class="sidediv"><br>&nbsp;&nbsp;<a href="https://google.com"><img href="https://google.com" src="https://cdn.discordapp.com/attachments/833440105993601025/1141124605357084672/Untitled89_20230815173241.png" width="50px" hieght="50px"></a><br><br><a style="text-align: center;">&nbsp;&nbsp;&nbsp;___</a>
-      <br><br><br>&nbsp;&nbsp;<a href="https://google.com"><img href="https://google.com" src="https://cdn.discordapp.com/attachments/833440105993601025/1141124605973639308/Untitled89_20230815173509.png" width="50px" hieght="50px"></a><br><br><a style="text-align: center;">&nbsp;&nbsp;&nbsp;___</a><br><br><br>&nbsp;
-      <a href="https://google.com"><img href="https://google.com" src="https://cdn.discordapp.com/attachments/833440105993601025/1141124606275637268/Untitled89_20230815174003.png" width="50px" hieght="50px"></a><br><br><a style="text-align: center;">&nbsp;&nbsp;&nbsp;___</a><br><br><br>&nbsp;
-      <a href="question.html"><img href="https://google.com" src="https://cdn.discordapp.com/attachments/833440105993601025/1141124606514696192/Untitled89_20230815174120.png" width="50px" hieght="50px"></a><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;<a href="https://google.com"><img href="https://google.com" src="https://cdn.discordapp.com/attachments/833440105993601025/1141124606514696192/Untitled89_20230815174120.png" width="50px" hieght="50px"></a></div>
-      <div style="background-color: black; width: 30px"></div><div style="margin-left: 180px; margin-right: 180px;" class="welcomediv"><div class="welcomerdiv"><br><a style="margin: auto; text-align: center"><b>Welcome, DarkHub_User23</b></a></div><br><a>Welcome to DarkHub v1 by JavaSploits. If you are seeing this, you went thru the key system, or you are key bypassed. If neither of these are tru, please contact the administrators.</a><br><br><a>If you have a custom theme, and you'd like to change it, you must re-order your personalized client.</a><br><br><a>We update every day, make sure to check for <u>updates</u> so you can get the lates version!</a></div>
-</body>
-</html>
+    </script>
+    <h4 style="color:red">Loading issues fixed.</h4>
+    
+    
+             </div>
+          
+           
+          
+          </div>
+          
+          <script>
+          
+          // Get the modal
+          
+          var modal = document.getElementById('id00');
+          
+          
+          
+          // When the user clicks anywhere outside of the modal, close it
+          
+          window.onclick = function(event) {
+          
+             if (event.target == modal) {
+          
+                 modal.style.display = "none";
+          
+             }
+          
+          }
+          
+          </script>
+    
+    <div id="id01" class="modal">
+    
+    
+    
+       <div class="imgcontainer">
+    
+         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+    
+         <h1 style="text-align: center;color: whitesmoke">Jake's Game Menu</h1>
+         <br>
+         <br>
+         <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Slope</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Swerve</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Master Archer</button>
+        <br>
+         <button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>
+        <br>
+         <button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>
+        <br>
+         <button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>
+        <br>
+         <button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>
+        <br>
+         <button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>&nbsp;&nbsp;&nbsp;<button onclick="document.getElementById('id0Soon').style.display='block'" style="width:auto;">Coming Soon...</button>
+    
+    
+       </div>
+    
+     
+    
+    </div>
+    
+    <script>
+    
+    // Get the modal
+    
+    var modal = document.getElementById('id01');
+    
+    
+    
+    // When the user clicks anywhere outside of the modal, close it
+    
+    window.onclick = function(event) {
+    
+       if (event.target == modal) {
+    
+           modal.style.display = "none";
+    
+       }
+    
+    }
+    
+    </script>
+    <div id="id02" class="modal">
+    
+        <form class="modal-content animate" action="/action_page.php" method="post">
+      
+         <div class="imgcontainer">
+      
+           <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
+      
+           <iframe src="https://script.google.com/a/macros/wcsc.k12.in.us/s/AKfycbxgYCjCS386leDDHz67N0zmhJ4OzxFviLXUGewFQpyFiIGeoqS7mCBy/exec" width="650" height="650">
+      
+         </iframe>
+      
+         </div>
+      
+       </form>
+      
+      </div>
+      
+      <script>
+      
+      // Get the modal
+      
+      var modal = document.getElementById('id02');
+      
+      
+      
+      // When the user clicks anywhere outside of the modal, close it
+      
+      window.onclick = function(event) {
+      
+         if (event.target == modal) {
+      
+             modal.style.display = "none";
+      
+         }
+      
+      }
+      
+      </script>
+      <div id="id03" class="modal">
+    
+     
+      
+         <div class="imgcontainer">
+      
+           <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">×</span>
+      
+           <iframe src="https://s3-eu-west-1.amazonaws.com/apps.playcanvas.com/VecAxR3e/index.html" width="650" height="650">
+      
+         </iframe>
+      
+         </div>
+      
+       
+      
+      </div>
+      
+      <script>
+      
+      // Get the modal
+      
+      var modal = document.getElementById('id03');
+      
+      
+      
+      // When the user clicks anywhere outside of the modal, close it
+      
+      window.onclick = function(event) {
+      
+         if (event.target == modal) {
+      
+             modal.style.display = "none";
+      
+         }
+      
+      }
+      
+      </script>
+      <div id="id04" class="modal">
+    
+        <form class="modal-content animate" action="/action_page.php" method="post">
+      
+         <div class="imgcontainer">
+      
+           <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">×</span>
+      
+           <iframe src="https://s3-eu-west-1.amazonaws.com/apps.playcanvas.com/OhRGQXcb/index.html" width="650" height="650">
+      
+         </iframe>
+      
+         </div>
+      
+       </form>
+      
+      </div>
+      
+      <script>
+      
+      // Get the modal
+      
+      var modal = document.getElementById('id04');
+      
+      
+      
+      // When the user clicks anywhere outside of the modal, close it
+      
+      window.onclick = function(event) {
+      
+         if (event.target == modal) {
+      
+             modal.style.display = "none";
+      
+         }
+      
+      }
+      
+      </script>
+     <div id="id05" class="modal">
+    
+     
+      
+      <div class="imgcontainer">
+    
+        <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">×</span>
+    
+        <iframe src="https://s3-eu-west-1.amazonaws.com/apps.playcanvas.com/VecAxR3e/index.html" width="650" height="650">
+    
+      </iframe>
+    
+      </div>
+    
+    
+    
+    </div>
+    
+    <script>
+    
+    // Get the modal
+    
+    var modal = document.getElementById('id05');
+    
+    
+    
+    // When the user clicks anywhere outside of the modal, close it
+    
+    window.onclick = function(event) {
+    
+      if (event.target == modal) {
+    
+          modal.style.display = "none";
+    
+      }
+    
+    }
+    
+    </script>
+    <div id="id04" class="modal">
+    
+     <form class="modal-content animate" action="/action_page.php" method="post">
+    
+      <div class="imgcontainer">
+    
+        <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">×</span>
+    
+        <iframe src="https://s3-eu-west-1.amazonaws.com/apps.playcanvas.com/OhRGQXcb/index.html" width="650" height="650">
+    
+      </iframe>
+    
+      </div>
+    
+    </form>
+    
+    </div>
+    
+    <script>
+    
+    // Get the modal
+    
+    var modal = document.getElementById('id04');
+    
+    
+    
+    // When the user clicks anywhere outside of the modal, close it
+    
+    window.onclick = function(event) {
+    
+      if (event.target == modal) {
+    
+          modal.style.display = "none";
+    
+      }
+    
+    }
+    </script>
+    
+    <div id="id0Error" class="modal-error">
+    
+    
+    
+       <div class="imgcontainer">
+    
+         <span onclick="document.getElementById('id0Error').style.display='none'" class="close" title="Close Modal">×</span>
+    
+    
+    <h2 style="color:#fefefe">Error, password is incorrect..</h2>
+    
+    
+       </div>
+    
+     
+    
+    </div>
+    
+    <script>
+    
+    // Get the modal
+    
+    var modal = document.getElementById('id0Error');
+    
+    
+    
+    // When the user clicks anywhere outside of the modal, close it
+    
+    window.onclick = function(event) {
+    
+       if (event.target == modal) {
+    
+           modal.style.display = "none";
+    
+       }
+    
+    }
+    
+    </script>
+    
+    <div id="id0Soon" class="modal">
+    
+    
+    
+        <div class="imgcontainer">
+     
+          <span onclick="document.getElementById('id0Soon').style.display='none'" class="close" title="Close Modal">×</span>
+     
+     
+     <h2 style="color:#fefefe">More games coming soon..! Stay tuned!</h2>
+     
+     
+        </div>
+     
+      
+     
+     </div>
+     
+     <script>
+     
+     // Get the modal
+     
+     var modal = document.getElementById('id0Soon');
+     
+     
+     
+     // When the user clicks anywhere outside of the modal, close it
+     
+     window.onclick = function(event) {
+     
+        if (event.target == modal) {
+     
+            modal.style.display = "none";
+     
+        }
+     
+     }
+     
+     </script>
+    
+    
+    </body></html>
